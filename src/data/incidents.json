@@ -1,0 +1,107 @@
+[
+  {
+    "id": "INC-001",
+    "title": "Timeout IKE em VPN IPsec",
+    "symptoms": "Filial sem VPN; negociação IKE expira e o peer remoto não responde.",
+    "cause": "Tráfego IKE bloqueado por uma regra de rede no caminho.",
+    "resolution": "Revisar conectividade e permitir UDP 500/4500 conforme a política aprovada."
+  },
+  {
+    "id": "INC-002",
+    "title": "VPN desconecta após troca de endereço WAN",
+    "symptoms": "Túnel IPsec caiu depois que o endereço público do roteador mudou.",
+    "cause": "O peer remoto ainda apontava para o endereço público anterior.",
+    "resolution": "Atualizar o endereço do peer remoto e confirmar a negociação do túnel."
+  },
+  {
+    "id": "INC-003",
+    "title": "VPN estabelece sem tráfego de retorno",
+    "symptoms": "Túnel aparece conectado, mas aplicações da filial não recebem respostas.",
+    "cause": "A rota de retorno para a sub-rede da filial estava ausente no lado central.",
+    "resolution": "Corrigir a rota de retorno e validar o tráfego nos dois sentidos."
+  },
+  {
+    "id": "INC-004",
+    "title": "Falha de VPN por divergência de propostas",
+    "symptoms": "Peer responde, mas a negociação IPsec termina com incompatibilidade de parâmetros.",
+    "cause": "Os peers usavam propostas de criptografia e tempos de vida diferentes.",
+    "resolution": "Comparar os parâmetros aprovados e alinhar as propostas nos dois lados."
+  },
+  {
+    "id": "INC-005",
+    "title": "Resolução DNS falha apenas para nomes internos",
+    "symptoms": "Acesso por endereço IP funciona, mas nomes de sistemas internos não resolvem.",
+    "cause": "Clientes da rede receberam um servidor DNS incorreto.",
+    "resolution": "Corrigir a configuração DHCP de DNS e renovar a configuração dos clientes."
+  },
+  {
+    "id": "INC-006",
+    "title": "Registros DNS desatualizados após migração",
+    "symptoms": "Um serviço migrado ainda resolve para o endereço anterior em algumas estações.",
+    "cause": "Cache DNS mantinha uma resposta antiga dentro do TTL configurado.",
+    "resolution": "Conferir o registro autoritativo e aguardar ou limpar o cache conforme o procedimento."
+  },
+  {
+    "id": "INC-007",
+    "title": "Intermitência de DNS no resolvedor local",
+    "symptoms": "Consultas DNS falham de forma intermitente enquanto a conectividade IP permanece normal.",
+    "cause": "O resolvedor local atingiu o limite de consultas simultâneas.",
+    "resolution": "Verificar carga e logs do resolvedor e ajustar capacidade seguindo a mudança aprovada."
+  },
+  {
+    "id": "INC-008",
+    "title": "Registro CNAME aponta para destino incorreto",
+    "symptoms": "Um único sistema interno abre o serviço errado apesar de outros nomes resolverem normalmente.",
+    "cause": "O registro CNAME do serviço referenciava um destino antigo.",
+    "resolution": "Corrigir o destino após confirmar o nome canônico esperado com a equipe responsável."
+  },
+  {
+    "id": "INC-009",
+    "title": "Wi-Fi lento em área de alta ocupação",
+    "symptoms": "Usuários conectam ao Wi-Fi, mas relatam lentidão concentrada em uma sala cheia.",
+    "cause": "Muitos dispositivos compartilhavam o mesmo ponto de acesso e canal congestionado.",
+    "resolution": "Analisar utilização e interferência; redistribuir clientes ou canais conforme o plano de rádio."
+  },
+  {
+    "id": "INC-010",
+    "title": "Autenticação Wi-Fi rejeitada após troca de certificado",
+    "symptoms": "Dispositivos corporativos deixam de entrar na rede sem fio após renovação de certificado.",
+    "cause": "O perfil dos dispositivos não confiava na nova autoridade certificadora.",
+    "resolution": "Distribuir a cadeia de certificados aprovada e testar autenticação em um dispositivo."
+  },
+  {
+    "id": "INC-011",
+    "title": "Quedas de Wi-Fi por sinal fraco",
+    "symptoms": "Conexão sem fio cai ao se afastar de uma sala, mas funciona perto do ponto de acesso.",
+    "cause": "Cobertura insuficiente em uma área entre pontos de acesso.",
+    "resolution": "Fazer levantamento de sinal e ajustar cobertura conforme o projeto de rede."
+  },
+  {
+    "id": "INC-012",
+    "title": "Dispositivo Wi-Fi não recebe endereço IP",
+    "symptoms": "Cliente associa à rede sem fio, mas permanece sem endereço IPv4 válido.",
+    "cause": "O escopo DHCP da VLAN sem fio estava sem endereços disponíveis.",
+    "resolution": "Verificar ocupação do escopo e liberar ou ampliar capacidade pelo processo aprovado."
+  },
+  {
+    "id": "INC-013",
+    "title": "WAN com perda de pacotes em horário de pico",
+    "symptoms": "Aplicações ficam lentas e há perda de pacotes em medições durante o expediente.",
+    "cause": "O enlace WAN atingia saturação por aumento de tráfego concorrente.",
+    "resolution": "Correlacionar utilização e tráfego por horário; aplicar priorização aprovada ou rever capacidade."
+  },
+  {
+    "id": "INC-014",
+    "title": "Link WAN principal indisponível",
+    "symptoms": "Vários serviços da filial ficaram inacessíveis e o roteador marcou o circuito principal como down.",
+    "cause": "Interrupção do circuito no provedor de conectividade.",
+    "resolution": "Acionar o provedor com evidências do circuito e acompanhar a recuperação do enlace."
+  },
+  {
+    "id": "INC-015",
+    "title": "Rota WAN assimétrica após mudança",
+    "symptoms": "Conexões atravessam a WAN, mas algumas sessões expiram sem resposta consistente.",
+    "cause": "Rotas de ida e volta passaram a usar enlaces diferentes após uma alteração de roteamento.",
+    "resolution": "Comparar os caminhos nos dois sentidos e restaurar o roteamento aprovado."
+  }
+]
