@@ -20,14 +20,11 @@ O projeto nasceu de uma dificuldade comum em operações de TI: **incidentes sem
 
 ```mermaid
 flowchart TD
-    A[Descrição de um novo incidente] --> B[Fastify + validação Zod]
-    B --> C[Embeddings Gemini]
-    C --> D[Busca semântica no MemoryVectorStore]
-    D --> E[Top 3 incidentes recuperados]
-    E --> F[Prompt com consulta + contexto]
-    F --> G[LLM Gemini via LangChain.js]
-    G --> H[Validação de schema e IDs citados]
-    H --> I[Análise JSON com fontes]
+    A["1 · Requisição<br/>POST /incidents/analyze"] --> B["2 · Entrada válida<br/>Fastify + Zod"]
+    B --> C["3 · Recuperação<br/>Embeddings Gemini + MemoryVectorStore<br/>Top 3 incidentes"]
+    C --> D["4 · Geração<br/>Prompt com contexto + LLM Gemini"]
+    D --> E["5 · Validação<br/>Schema da resposta + IDs recuperados"]
+    E --> F["6 · Resposta<br/>JSON com análise e fontes"]
 ```
 
 O fluxo tem **duas etapas distintas**:
